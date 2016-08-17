@@ -24,60 +24,53 @@ public class TCServicesImpl implements TCService{
 	
 	@Autowired
 	private ComponentService componentService;
-
-	@Override
-	public TestCertificate getTcByTcNo(int id,int componentId) {
-		Set<TCGridRow> tcGrid = componentService.getComponentsTcGridById(componentId);
-		MicroGridRow microGrid = componentService.getComponentsMicroGridById(componentId);
-		TestCertificate testCertificate = new TestCertificate();
-		testCertificate.setGridRows(tcGrid);
-		testCertificate.setCut(microGrid.getCut());
-		testCertificate.setHv(microGrid.getHv());
-		testCertificate.setLoadVal(microGrid.getLoad());
-		testCertificate.setMm(microGrid.getMm());
-		return tcRepository.findByTcNo(id); 
-	}
+ 
  
 	@Override
 	public TestCertificate saveTc(TestCertificate testCertificate) { 
-		if(testCertificate.getTcNo()==0){ 
-		Set<TCGridRow> tcGridRow = testCertificate.getGridRows();
-		testCertificate.setGridRows(null); 
-		TestCertificate savedTc = tcRepository.save(testCertificate);  
-		savedTc.setGridRows(tcGridRow);
-		assignTcNoToTcGridRow(savedTc); 
-		}
-		else{
-			assignTcNoToTcGridRow(testCertificate);
-		}
+//		if(testCertificate.getTcNo()==0){ 
+//		Set<TCGridRow> tcGridRow = testCertificate.getGridRows();
+//		testCertificate.setGridRows(null); 
+//		TestCertificate savedTc = tcRepository.save(testCertificate);  
+//		savedTc.setGridRows(tcGridRow);
+//		assignTcNoToTcGridRow(savedTc); 
+//		}
+//		else{
+//			assignTcNoToTcGridRow(testCertificate);
+//		}
 		return tcRepository.save(testCertificate);
 	}
 
-	private void assignTcNoToTcGridRow(TestCertificate testCertificate) {
-		Set<TCGridRow> gridRows = testCertificate.getGridRows();
-		for (TCGridRow tcGridRow:gridRows) {
-			tcGridRow.setTcNo(testCertificate.getTcNo());
-		}
-		
-	}
-
+	 
 	@Override
 	public TestCertificate updateTc(TestCertificate testCertificate) {
-		TestCertificate updatedTc = testCertificate;
-		testCertificate.setGridRows(null);
-		TestCertificate savedTc = tcRepository.save(testCertificate); 
-		updatedTc.setTcNo(savedTc.getTcNo()); 
-		
-		for (TCGridRow tcGridRow:updatedTc.getGridRows()) {
-			tcGridRow.setTcNo(savedTc.getTcNo());
-		}
-		return tcRepository.save(updatedTc); 
+//		TestCertificate updatedTc = testCertificate;
+//		testCertificate.setGridRows(null);
+//		TestCertificate savedTc = tcRepository.save(testCertificate); 
+//		updatedTc.setTcNo(savedTc.getTcNo()); 
+//		
+//		for (TCGridRow tcGridRow:updatedTc.getGridRows()) {
+//			tcGridRow.setTcNo(savedTc.getTcNo());
+//		}
+		return tcRepository.save(testCertificate); 
 	}
 
 	@Override
 	public TestCertificate getTcByTcNo(int id) {
 		return tcRepository.findByTcNo(id); 
 	}
+//
+//	@Override
+//	public TestCertificate saveTcWithComponentDetails(int componentId) { 
+//		Set<TCGridRow> tcGrid = componentService.getComponentsTcGridById(componentId); 
+//		TestCertificate testCertificate = tcRepository.save(new TestCertificate());
+//		for (TCGridRow tcRow:tcGrid) {
+//			tcRow.setTcNo(testCertificate.getTcNo());
+//		}
+//		testCertificate.setGridRows(tcGrid);
+//		return tcRepository.save(testCertificate); 
+//		
+//	}
 	 
  
 	

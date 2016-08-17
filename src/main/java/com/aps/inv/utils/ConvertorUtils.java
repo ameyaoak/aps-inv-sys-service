@@ -67,7 +67,7 @@ public class ConvertorUtils {
 			dispatchResponceDto.setQtyNos(dispatched.getQtyNos());
 			dispatchResponceDto.setRateKg(component.getRateKg());
 			dispatchResponceDto.setRateNos(component.getRateNos());
-			dispatchResponceDto.setTotal(dispatched.getTotal());
+			dispatchResponceDto.setTotal(dispatched.getTotal()); 
 			dispatchResponceDtoList.add(dispatchResponceDto);
 			}
 		}

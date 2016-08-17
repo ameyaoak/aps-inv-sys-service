@@ -35,9 +35,9 @@ public class InvoiceController {
 	}
 
 	//http://localhost:8080/Jersey-Spring-Hibernate/rest/invoice
-	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE) 
-	public Invoiced saveInvoice(@RequestBody Invoiced invoice) {  
-		return invoicedServices.saveInvoiceDeltails(invoice);
+	@RequestMapping(value="component/{componentId}",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE) 
+	public Invoiced saveInvoice(@RequestBody Invoiced invoice,@PathVariable("componentId") int componentId) {  
+		return invoicedServices.saveInvoiceDeltails(invoice,componentId);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE) 

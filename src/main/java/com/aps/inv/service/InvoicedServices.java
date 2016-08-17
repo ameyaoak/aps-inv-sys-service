@@ -8,11 +8,11 @@ public interface InvoicedServices {
 
 	Invoiced getInvoiceByInvoiceId(int id); 
 
-	List<Invoiced> getAllInvoices();
-
-	Invoiced saveInvoiceDeltails(Invoiced invoice); 
+	List<Invoiced> getAllInvoices(); 
  
 	Invoiced updateInvoice(Invoiced invoice);
 
-	void removeInvoice(int invoiceId); 
+	void removeInvoice(int invoiceId);
+
+	Invoiced saveInvoiceDeltails(Invoiced invoice, int componentId); 
 }
