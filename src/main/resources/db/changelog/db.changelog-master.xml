@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="oaka (generated)" id="1466501340953-1">
+        <createSequence sequenceName="address_address_id_seq"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-2">
+        <createSequence sequenceName="email_email_id_seq"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-3">
+        <createSequence sequenceName="phone_phone_id_seq"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-4">
+        <createTable tableName="activity">
+            <column name="activity_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activity_type" type="VARCHAR(20)"/>
+            <column name="occured_on" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="store_id" type="VARCHAR(10)"/>
+            <column name="consumer_record_id" type="VARCHAR(64)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column defaultValueComputed="now()" name="date_created" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="date_updated" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-5">
+        <createTable tableName="address">
+            <column autoIncrement="true" name="address_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_address_id"/>
+            </column>
+            <column name="is_title" type="BOOL"/>
+            <column name="move_in_date" type="date"/>
+            <column name="move_out_date" type="date"/>
+            <column name="address_type" type="VARCHAR(20)"/>
+            <column name="is_primary" type="BOOL"/>
+            <column name="normalization_status" type="VARCHAR(20)"/>
+            <column name="owner_id" type="VARCHAR(64)"/>
+            <column name="owner_type" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-6">
+        <createTable tableName="address_component">
+            <column name="component_key" type="VARCHAR(64)"/>
+            <column name="component_value" type="VARCHAR(100)"/>
+            <column name="address_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-7">
+        <createTable tableName="alias">
+            <column name="alias_id" type="VARCHAR(64)"/>
+            <column name="master_record_id" type="VARCHAR(64)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column defaultValueComputed="now()" name="date_created" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="date_updated" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-8">
+        <createTable tableName="business_contact">
+            <column name="business_contact_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(10)"/>
+            <column name="first_name" type="VARCHAR(20)"/>
+            <column name="last_name" type="VARCHAR(30)"/>
+            <column name="role" type="VARCHAR(20)"/>
+            <column name="name_suffix" type="VARCHAR(10)"/>
+            <column name="is_primary" type="BOOL"/>
+            <column name="business_record_id" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-9">
+        <createTable tableName="business_record">
+            <column name="business_record_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="doing_business_as" type="VARCHAR(100)"/>
+            <column name="federal_id" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-10">
+        <createTable tableName="communication_constraints">
+            <column name="channel" type="VARCHAR(20)"/>
+            <column name="applicable_org_unit_type" type="VARCHAR(20)"/>
+            <column name="reason" type="VARCHAR(20)"/>
+            <column name="source" type="VARCHAR(20)"/>
+            <column name="start_date" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="end_date" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="consumer_consent" type="BOOL"/>
+            <column name="consumer_record_id" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-11">
+        <createTable tableName="consumer_record">
+            <column name="consumer_record_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="owner_enterprise_id" type="VARCHAR(10)"/>
+            <column name="email_info_declined" type="BOOL"/>
+            <column name="consumer_type" type="VARCHAR(20)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column defaultValueComputed="now()" name="date_created" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="date_updated" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-12">
+        <createTable tableName="data_sharing_constraints">
+            <column name="data_receiver" type="VARCHAR(20)"/>
+            <column name="consumer_record_id" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-13">
+        <createTable tableName="driving_license">
+            <column name="license_number" type="VARCHAR(30)"/>
+            <column name="license_state" type="VARCHAR(2)"/>
+            <column name="expiry_date" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="hashed_license_number" type="VARCHAR(256)"/>
+            <column name="license_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_record_id" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-14">
+        <createTable tableName="email">
+            <column autoIncrement="true" name="email_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_email_id"/>
+            </column>
+            <column name="address" type="VARCHAR(256)"/>
+            <column name="is_primary" type="BOOL"/>
+            <column name="email_type" type="VARCHAR(20)"/>
+            <column name="owner_id" type="VARCHAR(64)"/>
+            <column name="owner_type" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-15">
+        <createTable tableName="external_consumer_id">
+            <column name="key" type="VARCHAR(20)"/>
+            <column name="value" type="VARCHAR(64)"/>
+            <column name="consumer_record_id" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-16">
+        <createTable tableName="insurance_agent">
+            <column name="insurance_agent_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-17">
+        <createTable tableName="insurance_company">
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="insurance_company_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-18">
+        <createTable tableName="person_record">
+            <column name="person_record_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(10)"/>
+            <column name="first_name" type="VARCHAR(20)"/>
+            <column name="last_name" type="VARCHAR(20)"/>
+            <column name="middle_name" type="VARCHAR(20)"/>
+            <column name="name_suffix" type="VARCHAR(10)"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="ssn" type="VARCHAR(9)"/>
+            <column name="gender" type="VARCHAR(30)"/>
+            <column name="ssn_salt" type="BYTEA"/>
+            <column name="driving_licenses_salt" type="BYTEA"/>
+            <column name="marital_status" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-19">
+        <createTable tableName="phone">
+            <column autoIncrement="true" name="phone_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_phone_id"/>
+            </column>
+            <column name="area_code" type="VARCHAR(3)"/>
+            <column name="phone_number" type="VARCHAR(7)"/>
+            <column name="country_code" type="VARCHAR(2)"/>
+            <column name="phone_type" type="VARCHAR(20)"/>
+            <column name="is_primary" type="BOOL"/>
+            <column name="extension" type="VARCHAR(10)"/>
+            <column name="owner_id" type="VARCHAR(64)"/>
+            <column name="owner_type" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-20">
+        <createTable tableName="t1">
+            <column name="txt" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-21">
+        <createTable tableName="vehicle_insurance">
+            <column name="vehicle_insurance_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="policy_effective_date" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="policy_number" type="VARCHAR(20)"/>
+            <column name="policy_expiry_date" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="collision_deductible" type="FLOAT8"/>
+            <column name="comprehensive_deductible" type="FLOAT8"/>
+            <column name="fire_and_theft_deductible" type="FLOAT8"/>
+            <column name="verified" type="BOOL"/>
+            <column name="verified_by" type="VARCHAR(50)"/>
+            <column name="verified_on" type="TIMESTAMP(29) WITHOUT TIME ZONE"/>
+            <column name="insurance_company_id" type="VARCHAR(64)"/>
+            <column name="insurance_agent_id" type="VARCHAR(64)"/>
+            <column name="consumer_record_id" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-22">
+        <addPrimaryKey columnNames="activity_id" constraintName="pk_activity_id" tableName="activity"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-23">
+        <addPrimaryKey columnNames="business_contact_id" constraintName="pk_business_contact_id" tableName="business_contact"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-24">
+        <addPrimaryKey columnNames="business_record_id" constraintName="pk_business_record_id" tableName="business_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-25">
+        <addPrimaryKey columnNames="consumer_record_id" constraintName="pk_consumer_id" tableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-26">
+        <addPrimaryKey columnNames="insurance_agent_id" constraintName="pk_insurance_agent_id" tableName="insurance_agent"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-27">
+        <addPrimaryKey columnNames="insurance_company_id" constraintName="pk_insurance_company_id" tableName="insurance_company"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-28">
+        <addPrimaryKey columnNames="license_id" constraintName="pk_license_id" tableName="driving_license"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-29">
+        <addPrimaryKey columnNames="person_record_id" constraintName="pk_person_record_id" tableName="person_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-30">
+        <addPrimaryKey columnNames="vehicle_insurance_id" constraintName="pk_vehicle_insurance_id" tableName="vehicle_insurance"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-31">
+        <addForeignKeyConstraint baseColumnNames="consumer_record_id" baseTableName="activity" constraintName="fk_activity_consumer_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-32">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="address_component" constraintName="fk_address_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="address_id" referencedTableName="address"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-33">
+        <addForeignKeyConstraint baseColumnNames="business_record_id" baseTableName="business_contact" constraintName="fk_business_contact_business_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="business_record_id" referencedTableName="business_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-34">
+        <addForeignKeyConstraint baseColumnNames="business_record_id" baseTableName="business_record" constraintName="fk_business_record_consumer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-35">
+        <addForeignKeyConstraint baseColumnNames="consumer_record_id" baseTableName="communication_constraints" constraintName="fk_communication_constraints_consumer_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-36">
+        <addForeignKeyConstraint baseColumnNames="consumer_record_id" baseTableName="data_sharing_constraints" constraintName="fk_data_sharing_constraints_consumer_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-37">
+        <addForeignKeyConstraint baseColumnNames="master_record_id" baseTableName="alias" constraintName="fk_data_sharing_constraints_master_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-38">
+        <addForeignKeyConstraint baseColumnNames="person_record_id" baseTableName="driving_license" constraintName="fk_driving_license_person_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="person_record_id" referencedTableName="person_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-39">
+        <addForeignKeyConstraint baseColumnNames="consumer_record_id" baseTableName="external_consumer_id" constraintName="fk_external_consumer_id_consumer_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-40">
+        <addForeignKeyConstraint baseColumnNames="person_record_id" baseTableName="person_record" constraintName="fk_person_record_consumer_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-41">
+        <addForeignKeyConstraint baseColumnNames="consumer_record_id" baseTableName="vehicle_insurance" constraintName="fk_vehicle_insurance_consumer_record_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="consumer_record_id" referencedTableName="consumer_record"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-42">
+        <addForeignKeyConstraint baseColumnNames="insurance_agent_id" baseTableName="vehicle_insurance" constraintName="fk_vehicle_insurance_insurance_agent_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="insurance_agent_id" referencedTableName="insurance_agent"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-43">
+        <addForeignKeyConstraint baseColumnNames="insurance_company_id" baseTableName="vehicle_insurance" constraintName="fk_vehicle_insurance_insurance_company_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="insurance_company_id" referencedTableName="insurance_company"/>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-44">
+        <createView fullDefinition="false" viewName="business_record_v"> SELECT br.business_record_id,
+    cr.description AS consumer_description,
+    cr.owner_enterprise_id,
+    cr.email_info_declined,
+    br.name AS business_record_name,
+    br.doing_business_as AS doing_businessas,
+    br.federal_id AS fed_id,
+    a.activity_type,
+    a.store_id,
+    a.occured_on AS activity_occured_on,
+    al.alias_id,
+    al.created_by AS alias_created_by,
+    al.updated_by AS alias_updated_by,
+    al.date_created AS alias_created_date,
+    al.date_updated AS alias_updated_date,
+    bc.title AS business_contact_title,
+    bc.first_name AS business_contact_firstname,
+    bc.last_name AS business_contact_lastname,
+    bc.role AS business_contact_role,
+    bc.name_suffix AS business_contact_name_suffix,
+    bc.is_primary AS business_contact_isprimary,
+    e.address AS email_address,
+    e.is_primary AS is_primary_email,
+    e.email_type,
+    p.area_code AS phone_area_code,
+    p.phone_number,
+    p.country_code,
+    p.phone_type,
+    p.is_primary AS isprimary_phone,
+    p.extension AS phone_extension,
+    adr.move_in_date AS address_move_in_date,
+    adr.move_out_date AS address_move_out_date,
+    adr.address_type,
+    adr.is_primary AS isaddress_primary,
+    adr.normalization_status AS address_normalized,
+    adc.component_key AS address_component_key,
+    adc.component_value AS address_component_value,
+    cs.channel AS communication_channel,
+    cs.applicable_org_unit_type,
+    cs.reason AS communication_reason,
+    cs.source AS communication_source,
+    cs.start_date AS communication_startdate,
+    cs.end_date AS communication_enddate,
+    cs.consumer_consent AS communication_consent,
+    vi.policy_effective_date,
+    vi.policy_expiry_date,
+    vi.collision_deductible,
+    vi.comprehensive_deductible,
+    vi.fire_and_theft_deductible AS fireandtheft_deductible,
+    vi.verified AS vehicle_insurance_verified,
+    vi.verified_by,
+    vi.verified_on,
+    ic.name AS insurance_company_name,
+    ic.insurance_company_id,
+    ia.insurance_agent_id,
+    ia.name AS insurance_agent_name,
+    ec.key AS external_consumer_key,
+    ec.value AS external_consumer_value,
+    dsc.data_receiver AS data_receiver_constraint
+   FROM ((((((((((consumer_record cr
+     LEFT JOIN activity a ON (((a.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN address adr ON (((adr.owner_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN vehicle_insurance vi ON (((vi.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN insurance_company ic ON (((ic.insurance_company_id)::text = (vi.insurance_company_id)::text)))
+     LEFT JOIN insurance_agent ia ON (((ia.insurance_agent_id)::text = (vi.insurance_agent_id)::text)))
+     LEFT JOIN alias al ON (((al.master_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN external_consumer_id ec ON (((ec.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN address_component adc ON ((adc.address_id = adr.address_id)))
+     LEFT JOIN communication_constraints cs ON (((cs.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN data_sharing_constraints dsc ON (((dsc.consumer_record_id)::text = (cr.consumer_record_id)::text))),
+    (((business_record br
+     LEFT JOIN business_contact bc ON (((bc.business_record_id)::text = (br.business_record_id)::text)))
+     LEFT JOIN email e ON (((e.owner_id)::text = (br.business_record_id)::text)))
+     LEFT JOIN phone p ON (((p.owner_id)::text = (br.business_record_id)::text)))
+  WHERE ((br.business_record_id)::text = (cr.consumer_record_id)::text);</createView>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-45">
+        <createView fullDefinition="false" viewName="consumer_record_v"> SELECT cr.consumer_record_id,
+    cr.description AS consumer_description,
+    cr.owner_enterprise_id AS owner_enterpriseid,
+    cr.email_info_declined,
+    cr.consumer_type,
+    pr.title AS person_title,
+    pr.first_name AS person_firstname,
+    pr.last_name AS person_lastname,
+    pr.middle_name AS person_middlename,
+    pr.name_suffix AS person_namesuffix,
+    pr.date_of_birth AS person_dateofbirth,
+    pr.ssn AS person_ssn,
+    pr.gender AS person_gender,
+    pr.ssn_salt AS person_ssnsalt,
+    pr.driving_licenses_salt AS person_drivinglicensesalt,
+    pr.marital_status AS person_marital_status,
+    al.alias_id,
+    al.created_by AS alias_created_by,
+    al.updated_by AS alias_updated_by,
+    al.date_created AS alias_created_date,
+    al.date_updated AS alias_updated_date,
+    br.name AS business_record_name,
+    br.doing_business_as AS doing_businessas,
+    br.federal_id AS fed_id,
+    drlc.license_number,
+    drlc.license_state,
+    drlc.expiry_date AS license_expiry_date,
+    drlc.hashed_license_number AS hashed_licensenumber,
+    bc.title AS business_contact_title,
+    bc.first_name AS business_contact_firstname,
+    bc.last_name AS business_contact_lastname,
+    bc.role AS business_contact_role,
+    bc.name_suffix AS business_contact_name_suffix,
+    bc.is_primary AS business_contact_isprimary,
+    a.activity_type,
+    a.store_id,
+    a.occured_on AS activity_occured_on,
+    p.area_code AS phone_area_code,
+    p.phone_number,
+    p.country_code,
+    p.phone_type,
+    p.is_primary AS isprimary_phone,
+    p.extension AS phone_extension,
+    e.address AS email_address,
+    e.is_primary AS is_primary_email,
+    e.email_type,
+    cs.channel AS communication_channel,
+    cs.applicable_org_unit_type,
+    cs.reason AS communication_reason,
+    cs.source AS communication_source,
+    cs.start_date AS communication_startdate,
+    cs.end_date AS communication_enddate,
+    cs.consumer_consent AS communication_consent,
+    adr.move_in_date AS address_move_in_date,
+    adr.move_out_date AS address_move_out_date,
+    adr.address_type,
+    adr.is_primary AS isaddress_primary,
+    adr.normalization_status AS address_normalized,
+    adc.component_key AS address_component_key,
+    adc.component_value AS address_component_value,
+    vi.policy_effective_date,
+    vi.policy_expiry_date,
+    vi.collision_deductible,
+    vi.comprehensive_deductible,
+    vi.fire_and_theft_deductible AS fireandtheft_deductible,
+    vi.verified AS vehicle_insurance_verified,
+    vi.verified_by,
+    vi.verified_on,
+    ic.name AS insurance_company_name,
+    ic.insurance_company_id,
+    ia.insurance_agent_id,
+    ia.name AS insurance_agent_name,
+    ec.key AS external_consumer_key,
+    ec.value AS external_consumer_value,
+    dsc.data_receiver AS data_receiver_constraint
+   FROM ((((((((((((((((consumer_record cr
+     LEFT JOIN person_record pr ON (((pr.person_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN business_record br ON (((br.business_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN driving_license drlc ON (((drlc.person_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN business_contact bc ON (((bc.business_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN activity a ON (((a.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN vehicle_insurance vi ON (((vi.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN communication_constraints cs ON (((cs.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN email e ON (((e.owner_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN phone p ON (((p.owner_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN address adr ON (((adr.owner_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN alias al ON (((al.master_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN external_consumer_id ec ON (((ec.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN insurance_company ic ON (((ic.insurance_company_id)::text = (vi.insurance_company_id)::text)))
+     LEFT JOIN insurance_agent ia ON (((ia.insurance_agent_id)::text = (vi.insurance_agent_id)::text)))
+     LEFT JOIN address_component adc ON ((adc.address_id = adr.address_id)))
+     LEFT JOIN data_sharing_constraints dsc ON (((dsc.consumer_record_id)::text = (cr.consumer_record_id)::text)));</createView>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-46">
+        <createView fullDefinition="false" viewName="person_record_v"> SELECT pr.person_record_id,
+    cr.description AS consumer_description,
+    cr.owner_enterprise_id,
+    cr.email_info_declined,
+    pr.title AS person_title,
+    pr.first_name AS person_firstname,
+    pr.last_name AS person_lastname,
+    pr.middle_name AS person_middlename,
+    pr.name_suffix AS person_namesuffix,
+    pr.date_of_birth AS person_dateofbirth,
+    pr.ssn AS person_ssn,
+    pr.gender AS person_gender,
+    pr.ssn_salt AS person_ssnsalt,
+    pr.driving_licenses_salt AS person_drivinglicensesalt,
+    pr.marital_status AS person_marital_status,
+    a.activity_type,
+    a.store_id,
+    a.occured_on AS activity_occured_on,
+    al.alias_id,
+    al.created_by AS alias_created_by,
+    al.updated_by AS alias_updated_by,
+    al.date_created AS alias_created_date,
+    al.date_updated AS alias_updated_date,
+    drlc.license_number,
+    drlc.license_state,
+    drlc.expiry_date AS license_expiry_date,
+    drlc.hashed_license_number AS hashed_licensenumber,
+    p.area_code AS phone_area_code,
+    p.phone_number,
+    p.country_code,
+    p.phone_type,
+    p.is_primary AS isprimary_phone,
+    p.extension AS phone_extension,
+    e.address AS email_address,
+    e.is_primary AS is_primary_email,
+    e.email_type,
+    adr.move_in_date AS address_move_in_date,
+    adr.move_out_date AS address_move_out_date,
+    adr.address_type,
+    adr.is_primary AS isaddress_primary,
+    adr.normalization_status AS address_normalized,
+    adc.component_key AS address_component_key,
+    adc.component_value AS address_component_value,
+    cs.channel AS communication_channel,
+    cs.applicable_org_unit_type,
+    cs.reason AS communication_reason,
+    cs.source AS communication_source,
+    cs.start_date AS communication_startdate,
+    cs.end_date AS communication_enddate,
+    cs.consumer_consent AS communication_consent,
+    vi.policy_effective_date,
+    vi.policy_expiry_date,
+    vi.collision_deductible,
+    vi.comprehensive_deductible,
+    vi.fire_and_theft_deductible AS fireandtheft_deductible,
+    vi.verified AS vehicle_insurance_verified,
+    vi.verified_by,
+    vi.verified_on,
+    ic.name AS insurance_company_name,
+    ic.insurance_company_id,
+    ia.insurance_agent_id,
+    ia.name AS insurance_agent_name,
+    ec.key AS external_consumer_key,
+    ec.value AS external_consumer_value,
+    dsc.data_receiver AS data_receiver_constraint
+   FROM (person_record pr
+     LEFT JOIN driving_license drlc ON (((drlc.person_record_id)::text = (pr.person_record_id)::text))),
+    ((((((((((((consumer_record cr
+     LEFT JOIN activity a ON (((a.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN email e ON (((e.owner_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN phone p ON (((p.owner_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN vehicle_insurance vi ON (((vi.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN communication_constraints cs ON (((cs.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN address adr ON (((adr.owner_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN insurance_company ic ON (((ic.insurance_company_id)::text = (vi.insurance_company_id)::text)))
+     LEFT JOIN insurance_agent ia ON (((ia.insurance_agent_id)::text = (vi.insurance_agent_id)::text)))
+     LEFT JOIN alias al ON (((al.master_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN external_consumer_id ec ON (((ec.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+     LEFT JOIN address_component adc ON ((adc.address_id = adr.address_id)))
+     LEFT JOIN data_sharing_constraints dsc ON (((dsc.consumer_record_id)::text = (cr.consumer_record_id)::text)))
+  WHERE ((pr.person_record_id)::text = (cr.consumer_record_id)::text);</createView>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-47">
+        <createView fullDefinition="false" viewName="pg_buffercache"> SELECT p.bufferid,
+    p.relfilenode,
+    p.reltablespace,
+    p.reldatabase,
+    p.relforknumber,
+    p.relblocknumber,
+    p.isdirty,
+    p.usagecount,
+    p.pinning_backends
+   FROM pg_buffercache_pages() p(bufferid integer, relfilenode oid, reltablespace oid, reldatabase oid, relforknumber smallint, relblocknumber bigint, isdirty boolean, usagecount smallint, pinning_backends integer);</createView>
+    </changeSet>
+    <changeSet author="oaka (generated)" id="1466501340953-48">
+        <createView fullDefinition="false" viewName="pg_stat_statements"> SELECT pg_stat_statements.userid,
+    pg_stat_statements.dbid,
+    pg_stat_statements.queryid,
+    pg_stat_statements.query,
+    pg_stat_statements.calls,
+    pg_stat_statements.total_time,
+    pg_stat_statements.min_time,
+    pg_stat_statements.max_time,
+    pg_stat_statements.mean_time,
+    pg_stat_statements.stddev_time,
+    pg_stat_statements.rows,
+    pg_stat_statements.shared_blks_hit,
+    pg_stat_statements.shared_blks_read,
+    pg_stat_statements.shared_blks_dirtied,
+    pg_stat_statements.shared_blks_written,
+    pg_stat_statements.local_blks_hit,
+    pg_stat_statements.local_blks_read,
+    pg_stat_statements.local_blks_dirtied,
+    pg_stat_statements.local_blks_written,
+    pg_stat_statements.temp_blks_read,
+    pg_stat_statements.temp_blks_written,
+    pg_stat_statements.blk_read_time,
+    pg_stat_statements.blk_write_time
+   FROM pg_stat_statements(true) pg_stat_statements(userid, dbid, queryid, query, calls, total_time, min_time, max_time, mean_time, stddev_time, rows, shared_blks_hit, shared_blks_read, shared_blks_dirtied, shared_blks_written, local_blks_hit, local_blks_read, local_blks_dirtied, local_blks_written, temp_blks_read, temp_blks_written, blk_read_time, blk_write_time);</createView>
+    </changeSet>
+</databaseChangeLog>
