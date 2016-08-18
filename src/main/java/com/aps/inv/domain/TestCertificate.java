@@ -26,4 +26,13 @@ public class TestCertificate {
 	
 	String mm,cut,hv,loadVal;
 	
+	String carbonActualCP,carbonActualTime,carbonDiff,carbonDiffCP,carbonDiffTime,hardneningTemp,
+    hardneningCP,hardneningTime;
+	
+	String temperingQOTBefore,temperingQOTAfter,temperingT1Temp,temperingT1Time,temperingT2Temp,
+	temperingT2Time;
+	
+	String annTemp,annTime,normTemp,normTime,totalBatchTime;
+     
+	
 }

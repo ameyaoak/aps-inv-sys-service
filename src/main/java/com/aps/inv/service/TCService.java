@@ -6,7 +6,6 @@ public interface TCService {
 
 	TestCertificate getTcByTcNo(int id);
 	TestCertificate saveTc(TestCertificate testCertificate);
-	TestCertificate updateTc(TestCertificate testCertificate); 
-	TestCertificate saveTcWithComponentDetails(int componentId); 
+	TestCertificate updateTc(TestCertificate testCertificate);  
 
 }

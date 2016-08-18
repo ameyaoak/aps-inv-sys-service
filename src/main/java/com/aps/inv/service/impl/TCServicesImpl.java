@@ -1,16 +1,10 @@
 package com.aps.inv.service.impl;
 
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aps.inv.domain.MicroGridRow;
-import com.aps.inv.domain.TCGridRow;
 import com.aps.inv.domain.TestCertificate;
 import com.aps.inv.repository.TCRepository;
-import com.aps.inv.repository.TcGridRowRepository;
-import com.aps.inv.service.ComponentService;
 import com.aps.inv.service.TCService; 
 
 @Service
@@ -18,14 +12,7 @@ public class TCServicesImpl implements TCService{
 	
 	@Autowired
 	private TCRepository tcRepository;
-	
-	@Autowired
-	private TcGridRowRepository tcGridRowRepository;
-	
-	@Autowired
-	private ComponentService componentService;
- 
- 
+	   
 	@Override
 	public TestCertificate saveTc(TestCertificate testCertificate) { 
 //		if(testCertificate.getTcNo()==0){ 

@@ -25,10 +25,10 @@ public class TCController {
 	}
 	
 
-	@RequestMapping(value = "component/{componentId}" , method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE) 
-	public TestCertificate saveTcWithComponentDetails(@PathVariable("componentId") int componentId) { 
-		return tcService.saveTcWithComponentDetails(componentId);
-	}
+//	@RequestMapping(value = "component/{componentId}" , method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE) 
+//	public TestCertificate saveTcWithComponentDetails(@PathVariable("componentId") int componentId) { 
+//		return tcService.saveTcWithComponentDetails(componentId);
+//	}
  
 	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE) 
 	public TestCertificate saveTc(@RequestBody TestCertificate testCertificate) { 
