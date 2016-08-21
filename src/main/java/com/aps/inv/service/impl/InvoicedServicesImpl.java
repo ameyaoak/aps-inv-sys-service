@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aps.inv.domain.Invoiced;
+import com.aps.inv.domain.InvoicedResponceDto;
 import com.aps.inv.domain.TCGridRow;
 import com.aps.inv.domain.TestCertificate;
 import com.aps.inv.repository.InvoicedRepository;
 import com.aps.inv.repository.TCRepository;
 import com.aps.inv.service.ComponentService;
 import com.aps.inv.service.InvoicedServices;
-import com.aps.inv.service.TCService; 
+import com.aps.inv.utils.ConvertorUtils; 
 
 @Service
 public class InvoicedServicesImpl implements InvoicedServices{
@@ -26,16 +27,19 @@ public class InvoicedServicesImpl implements InvoicedServices{
 	
 	@Autowired
 	private TCRepository tcRepository;
+	
+	@Autowired
+	private ConvertorUtils convetorUtil;
 
 	@Override
-	public Invoiced getInvoiceByInvoiceId(int id) { 
-		return invoicedRepository.findByInvoiceNo(id);
+	public InvoicedResponceDto getInvoiceByInvoiceId(int id) { 
+		return convetorUtil.convertInvoicedTOInvoicedResponceDto(invoicedRepository.findByInvoiceNo(id));
 	}
 	 
 
 	@Override
-	public List<Invoiced> getAllInvoices() { 
-		return invoicedRepository.findAll();
+	public List<InvoicedResponceDto> getAllInvoices() {  
+		return convetorUtil.convertInvoicedListTOInvoicedResponceDtoList(invoicedRepository.findAll());
 	}
 
 	@Override

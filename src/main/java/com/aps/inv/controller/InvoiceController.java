@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aps.inv.domain.Invoiced;
+import com.aps.inv.domain.InvoicedResponceDto;
 import com.aps.inv.service.InvoicedServices;
  
 
@@ -24,13 +25,13 @@ public class InvoiceController {
 
 	//http://localhost:8080/Jersey-Spring-Hibernate/rest/invoice/1
 	@RequestMapping(value = "/{id}" , method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE) 
-	public Invoiced getInvoiceByInwardId(@PathVariable("id") int id) { 
+	public InvoicedResponceDto getInvoiceByInwardId(@PathVariable("id") int id) { 
 		return invoicedServices.getInvoiceByInvoiceId(id);
 	} 
 	
 	//http://localhost:8080/Jersey-Spring-Hibernate/rest/invoice/invoices/all
 	@RequestMapping(value = "/all" , method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE) 
-	public List<Invoiced> getAllInwards() {
+	public List<InvoicedResponceDto> getAllInwards() {
 		return invoicedServices.getAllInvoices();
 	}
 

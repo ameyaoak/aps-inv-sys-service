@@ -5,14 +5,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
-import org.assertj.core.internal.Dates;
 import org.assertj.core.util.Lists;
 import org.springframework.util.CollectionUtils;
 
 import com.aps.inv.domain.Component;
 import com.aps.inv.domain.DispatchResponceDto;
 import com.aps.inv.domain.Dispatched;
+import com.aps.inv.domain.Invoiced;
+import com.aps.inv.domain.InvoicedResponceDto;
 import com.aps.inv.domain.Inward;
 import com.aps.inv.domain.InwardResponceDto;
 
@@ -74,30 +74,36 @@ public class ConvertorUtils {
 		return dispatchResponceDtoList;
 	}
 	
-	public List<DispatchResponceDto> convertInvoicedTOInvoicedResponceDto(Inward inward){
-		Component component = new Component();
-		component=inward.getComponent();
-		Set<Dispatched> dispatchs = inward.getDispatches();
-		List<DispatchResponceDto> dispatchResponceDtoList = Lists.newArrayList(); 
-
-		for(Dispatched dispatched : dispatchs){
-			DispatchResponceDto dispatchResponceDto = new DispatchResponceDto();
-			dispatchResponceDto.setDispatchNo(dispatched.getDispatchNo());
-			dispatchResponceDto.setCreationDate(formatDate(dispatched.getCreationDate())); 
-			dispatchResponceDto.setInwardNo(dispatched.getInwardNo());
-			dispatchResponceDto.setComponentId(component.getComponentId());
-			dispatchResponceDto.setParty(component.getPartyName());
-			dispatchResponceDto.setComponent(component.getComponentName());
-			dispatchResponceDto.setMaterial(component.getMaterial());
-			dispatchResponceDto.setPartNo(component.getPartNo());
-			dispatchResponceDto.setProcess(component.getProcess());
-			dispatchResponceDto.setQtyKgs(dispatched.getQtyKgs());
-			dispatchResponceDto.setQtyNos(dispatched.getQtyNos());
-			dispatchResponceDto.setRateKg(component.getRateKg());
-			dispatchResponceDto.setRateNos(component.getRateNos());
-			dispatchResponceDto.setTotal(dispatched.getTotal());
-			dispatchResponceDtoList.add(dispatchResponceDto);
+	 
+	
+	public InvoicedResponceDto convertInvoicedTOInvoicedResponceDto(Invoiced invoiced){
+		InvoicedResponceDto invoicedResponceDto = new InvoicedResponceDto();
+		invoicedResponceDto.setComponentId(invoiced.getComponentId());
+		invoicedResponceDto.setComponentName(invoiced.getComponentName());
+		invoicedResponceDto.setCreationDate(formatDate(invoiced.getCreationDate()));
+		invoicedResponceDto.setDispatchNo(invoiced.getDispatchNo());
+		invoicedResponceDto.setInvoiceNo(invoiced.getInvoiceNo());
+		invoicedResponceDto.setInwardNo(invoiced.getInwardNo());
+		invoicedResponceDto.setMaterial(invoiced.getMaterial());
+		invoicedResponceDto.setParty(invoiced.getParty());
+		invoicedResponceDto.setQtyKgs(invoiced.getQtyKgs());
+		invoicedResponceDto.setQtyNos(invoiced.getQtyNos());
+		invoicedResponceDto.setRateKg(invoiced.getRateKg());
+		invoicedResponceDto.setRateNos(invoiced.getRateNos());
+		invoicedResponceDto.setTestCertificate(invoiced.getTestCertificate());
+		invoicedResponceDto.setTotal(invoiced.getTotal()); 
+		return invoicedResponceDto;
+	
+	}
+	public List<InvoicedResponceDto> convertInvoicedListTOInvoicedResponceDtoList(List<Invoiced> invoiced){
+		List<InvoicedResponceDto> invoicedResponceDtos = Lists.newArrayList();
+		for (Invoiced invoice : invoiced) {
+			InvoicedResponceDto invoicedResponceDto = convertInvoicedTOInvoicedResponceDto(invoice);
+			invoicedResponceDtos.add(invoicedResponceDto);
 		}
-		return dispatchResponceDtoList;
+		return invoicedResponceDtos; 
+		
+	
+		 
 	}
 }

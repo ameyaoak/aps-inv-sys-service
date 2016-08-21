@@ -3,12 +3,13 @@ package com.aps.inv.service;
 import java.util.List;
 
 import com.aps.inv.domain.Invoiced;
+import com.aps.inv.domain.InvoicedResponceDto;
  
 public interface InvoicedServices {
 
-	Invoiced getInvoiceByInvoiceId(int id); 
+	InvoicedResponceDto getInvoiceByInvoiceId(int id); 
 
-	List<Invoiced> getAllInvoices(); 
+	List<InvoicedResponceDto> getAllInvoices(); 
  
 	Invoiced updateInvoice(Invoiced invoice);
 
