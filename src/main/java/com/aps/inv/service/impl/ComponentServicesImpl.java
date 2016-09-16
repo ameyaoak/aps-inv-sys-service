@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.assertj.core.util.Lists;
 import org.assertj.core.util.Sets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,17 +54,17 @@ public class ComponentServicesImpl implements ComponentService{
 	@Override
 	public Set<TCGridRow> getComponentsTcGridById(int componentId) {
 		Component component = componentRepository.findByComponentId(componentId);
-		Set<TCGridRow> gridRows = Sets.newHashSet(); 
-		if(StringUtils.isNotBlank(component.getApperance())){
-			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("Apperance");
-			gridRow.setActuals(component.getApperance());
-			gridRows.add(gridRow);
-		}
+		Set<TCGridRow> gridRows = Sets.newLinkedHashSet(); 
 		if(StringUtils.isNotBlank(component.getSurfaceHd())){
 			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("Surface Hd");
+			gridRow.setParticular("Surface Hardness");
 			gridRow.setActuals(component.getSurfaceHd());
+			gridRows.add(gridRow);
+		}
+		if(StringUtils.isNotBlank(component.getCoreHd())){
+			TCGridRow gridRow=new TCGridRow();
+			gridRow.setParticular("Core Hardness");
+			gridRow.setActuals(component.getCoreHd());
 			gridRows.add(gridRow);
 		}
 		if(StringUtils.isNotBlank(component.getCaseDepth())){
@@ -74,36 +73,30 @@ public class ComponentServicesImpl implements ComponentService{
 			gridRow.setActuals(component.getCaseDepth());
 			gridRows.add(gridRow);
 		}
-		if(StringUtils.isNotBlank(component.getCoreHd())){
-			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("Core Hd");
-			gridRow.setActuals(component.getCoreHd());
-			gridRows.add(gridRow);
-		}
 		if(StringUtils.isNotBlank(component.getCrack())){
 			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("Crack");
+			gridRow.setParticular("Microstructure");
 			gridRow.setActuals(component.getCrack());
 			gridRows.add(gridRow);
 		}
-		if(StringUtils.isNotBlank(component.getSf())){
-			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("SF");
-			gridRow.setActuals(component.getSf());
-			gridRows.add(gridRow);
-		}
-		if(StringUtils.isNotBlank(component.getWtt())){
-			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("Wtt");
-			gridRow.setActuals(component.getWtt());
-			gridRows.add(gridRow);
-		}
-		if(StringUtils.isNotBlank(component.getMicro())){
-			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("Micro");
-			gridRow.setActuals(component.getMicro());
-			gridRows.add(gridRow);
-		}
+//		if(StringUtils.isNotBlank(component.getSf())){
+//			TCGridRow gridRow=new TCGridRow();
+//			gridRow.setParticular("SF");
+//			gridRow.setActuals(component.getSf());
+//			gridRows.add(gridRow);
+//		}
+//		if(StringUtils.isNotBlank(component.getWtt())){
+//			TCGridRow gridRow=new TCGridRow();
+//			gridRow.setParticular("Wtt");
+//			gridRow.setActuals(component.getWtt());
+//			gridRows.add(gridRow);
+//		}
+//		if(StringUtils.isNotBlank(component.getMicro())){
+//			TCGridRow gridRow=new TCGridRow();
+//			gridRow.setParticular("Micro");
+//			gridRow.setActuals(component.getMicro());
+//			gridRows.add(gridRow);
+//		}
 		if(StringUtils.isNotBlank(component.getDistortation())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Distortation");
@@ -114,6 +107,12 @@ public class ComponentServicesImpl implements ComponentService{
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("LayerThickness");
 			gridRow.setActuals(component.getLayerThickness());
+			gridRows.add(gridRow);
+		}
+		if(StringUtils.isNotBlank(component.getApperance())){
+			TCGridRow gridRow=new TCGridRow();
+			gridRow.setParticular("Apperance");
+			gridRow.setActuals(component.getApperance());
 			gridRows.add(gridRow);
 		}
 		return gridRows;
