@@ -32,7 +32,6 @@ public class Inward {
 	
 	@OneToMany(mappedBy="inwardNo",cascade = CascadeType.ALL)
 	private Set<Dispatched> dispatches;
-	 
-	 
 	
+	private String inspectedQty,damageQty,inspectedDistortation,finish,checkedBy,remark,partyDc,partyDate,poNo,poDate;	
 }

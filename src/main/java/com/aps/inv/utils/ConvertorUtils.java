@@ -35,6 +35,7 @@ public class ConvertorUtils {
 		inwardResponceDto.setQtyNos(inward.getQtyNos());
 		inwardResponceDto.setRateKg(component.getRateKg());
 		inwardResponceDto.setRateNos(component.getRateNos());
+		inwardResponceDto.setRemark(inward.getRemark());
 		return inwardResponceDto;
 	}
 

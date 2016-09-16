@@ -53,7 +53,7 @@ public class InwardServicesImpl implements InwardService{
 	public List<InwardResponceDto> getAllInwardsForDisplay() {
 		List<InwardResponceDto> inwardResponceDtos = Lists.newArrayList();
 		for (Inward inward : inwardRepository.findAll()) {
-			if(inward.getQtyKgs() > 0 && inward.getQtyNos() > 0){
+			if(inward.getQtyKgs() >= 0 && inward.getQtyNos() >= 0 && inward.getQtyKgs()+inward.getQtyNos()>0){
 			inwardResponceDtos.add(converterUtils.convertInwardTOInwardResponceDto(inward));
 			}
 		}

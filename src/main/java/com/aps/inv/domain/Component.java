@@ -19,7 +19,7 @@ public class Component {
 	private int partyId;
 	private String componentName , partyName,material,partNo, process, poNo, poDate,
 			coreHd, surfaceHd, caseDepth, crack, micro, distortation, sf, wtt,
-			layerThickness, apperance, version,processPlanNo,sizeOfJob,routeCardNo,partyDc,partyDate;
+			layerThickness, apperance, version,processPlanNo,sizeOfJob,routeCardNo;
  
 	private double rateKg,rateNos;
 }

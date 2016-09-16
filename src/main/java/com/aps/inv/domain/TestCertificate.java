@@ -28,7 +28,7 @@ public class TestCertificate {
 	
 	String refStd,heatCode,batchNo,furnace,finalDisposition;
 	
-	String carbonActualCP,carbonActualTime,carbonDiff,carbonDiffCP,carbonDiffTime,hardneningTemp,
+	String carbonActualTemp,carbonActualCP,carbonActualTime,carbonDiff,carbonDiffTemp,carbonDiffCP,carbonDiffTime,hardneningTemp,
     hardneningCP,hardneningTime;
 	
 	String temperingQOTBefore,temperingQOTAfter,temperingT1Temp,temperingT1Time,temperingT2Temp,
