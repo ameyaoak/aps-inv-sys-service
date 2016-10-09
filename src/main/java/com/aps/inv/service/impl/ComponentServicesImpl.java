@@ -58,24 +58,32 @@ public class ComponentServicesImpl implements ComponentService{
 		if(StringUtils.isNotBlank(component.getSurfaceHd())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Surface Hardness");
+			gridRow.setTestLocation(component.getSurfaceHdTestLocation());
+			gridRow.setTestMethod(component.getSurfaceHdTestMethod());
 			gridRow.setActuals(component.getSurfaceHd());
 			gridRows.add(gridRow);
 		}
 		if(StringUtils.isNotBlank(component.getCoreHd())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Core Hardness");
+			gridRow.setTestLocation(component.getCoreHdTestLocation());
+			gridRow.setTestMethod(component.getCoreHdTestMethod());
 			gridRow.setActuals(component.getCoreHd());
 			gridRows.add(gridRow);
 		}
 		if(StringUtils.isNotBlank(component.getCaseDepth())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Case Depth");
+			gridRow.setTestLocation(component.getCaseDepthTestLocation());
+			gridRow.setTestMethod(component.getCaseDepthTestMethod());
 			gridRow.setActuals(component.getCaseDepth());
 			gridRows.add(gridRow);
 		}
 		if(StringUtils.isNotBlank(component.getCrack())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Microstructure");
+			gridRow.setTestLocation(component.getCrackTestLocation());
+			gridRow.setTestMethod(component.getCrackTestMethod());
 			gridRow.setActuals(component.getCrack());
 			gridRows.add(gridRow);
 		}
@@ -100,18 +108,24 @@ public class ComponentServicesImpl implements ComponentService{
 		if(StringUtils.isNotBlank(component.getDistortation())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Distortation");
+			gridRow.setTestLocation(component.getDistortationTestLocation());
+			gridRow.setTestMethod(component.getDistortationTestMethod());
 			gridRow.setActuals(component.getDistortation());
 			gridRows.add(gridRow);
 		}
 		if(StringUtils.isNotBlank(component.getLayerThickness())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("LayerThickness");
+			gridRow.setTestLocation(component.getLayerThicknessTestLocation());
+			gridRow.setTestMethod(component.getLayerThicknessTestMethod());
 			gridRow.setActuals(component.getLayerThickness());
 			gridRows.add(gridRow);
 		}
 		if(StringUtils.isNotBlank(component.getApperance())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Apperance");
+			gridRow.setTestLocation(component.getApperanceTestLocation());
+			gridRow.setTestMethod(component.getApperanceTestMethod());
 			gridRow.setActuals(component.getApperance());
 			gridRows.add(gridRow);
 		}

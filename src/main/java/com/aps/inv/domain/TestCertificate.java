@@ -26,7 +26,7 @@ public class TestCertificate {
 	
 	String mm,cut,hv,loadVal;
 	
-	String refStd,heatCode,batchNo,furnace,finalDisposition;
+	String refStd,heatCode,batchNo,furnace,finalDisposition,batchId;
 	
 	String carbonActualTemp,carbonActualCP,carbonActualTime,carbonDiff,carbonDiffTemp,carbonDiffCP,carbonDiffTime,hardneningTemp,
     hardneningCP,hardneningTime;
@@ -35,5 +35,7 @@ public class TestCertificate {
 	temperingT2Time;
 	
 	String annTemp,annTime,normTemp,normTime,totalBatchTime;
+	
+	String inspectedBy,approvedBy;
 	 
 }

@@ -19,7 +19,11 @@ public class Component {
 	private int partyId;
 	private String componentName , partyName,material,partNo, process, poNo, poDate,
 			coreHd, surfaceHd, caseDepth, crack, micro, distortation, sf, wtt,
-			layerThickness, apperance, version,processPlanNo,sizeOfJob,routeCardNo;
+			coreHdTestLocation, surfaceHdTestLocation, caseDepthTestLocation, crackTestLocation, microTestLocation, distortationTestLocation,
+			coreHdTestMethod, surfaceHdTestMethod, caseDepthTestMethod, crackTestMethod, microTestMethod, distortationTestMethod,
+			layerThickness, apperance, version,processPlanNo,sizeOfJob,routeCardNo,
+			layerThicknessTestLocation, apperanceTestLocation,
+			layerThicknessTestMethod, apperanceTestMethod;
  
 	private double rateKg,rateNos;
 }
