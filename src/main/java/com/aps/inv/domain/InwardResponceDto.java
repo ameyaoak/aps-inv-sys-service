@@ -7,7 +7,7 @@ public class InwardResponceDto {
 
 	String creationDate;
 	int inwardNo;
-	String party,component,material,partNo,process,remark;
+	String party,component,material,partNo,process,remark,partyDc,partyDate;
 	double qtyKgs,qtyNos,rateKg,rateNos;
 	 	
 }

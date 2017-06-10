@@ -27,6 +27,8 @@ public class ConvertorUtils {
 		inwardResponceDto.setCreationDate(formatDate(inward.getCreationDate()));
 		inwardResponceDto.setInwardNo(inward.getInwardNo());
 		inwardResponceDto.setParty(inward.getComponent().getPartyName());
+		inwardResponceDto.setPartyDc(inward.getPartyDc());
+		inwardResponceDto.setPartyDate(inward.getPartyDate());
 		inwardResponceDto.setComponent(component.getComponentName());
 		inwardResponceDto.setMaterial(component.getMaterial());
 		inwardResponceDto.setPartNo(component.getPartNo());
@@ -60,6 +62,8 @@ public class ConvertorUtils {
 			dispatchResponceDto.setInwardNo(dispatched.getInwardNo());
 			dispatchResponceDto.setComponentId(component.getComponentId());
 			dispatchResponceDto.setParty(component.getPartyName());
+			dispatchResponceDto.setPartyDc(inward.getPartyDc());
+			dispatchResponceDto.setPartyDate(inward.getPartyDate());
 			dispatchResponceDto.setComponent(component.getComponentName());
 			dispatchResponceDto.setMaterial(component.getMaterial());
 			dispatchResponceDto.setPartNo(component.getPartNo());
@@ -86,13 +90,17 @@ public class ConvertorUtils {
 		invoicedResponceDto.setInvoiceNo(invoiced.getInvoiceNo());
 		invoicedResponceDto.setInwardNo(invoiced.getInwardNo());
 		invoicedResponceDto.setMaterial(invoiced.getMaterial());
+		invoicedResponceDto.setPartNo(invoiced.getPartNo());
+		invoicedResponceDto.setProcess(invoiced.getProcess());
 		invoicedResponceDto.setParty(invoiced.getParty());
+		invoicedResponceDto.setPartyDc(invoiced.getPartyDc()); 
+		invoicedResponceDto.setPartyDate(invoiced.getPartyDate()); 
 		invoicedResponceDto.setQtyKgs(invoiced.getQtyKgs());
 		invoicedResponceDto.setQtyNos(invoiced.getQtyNos());
 		invoicedResponceDto.setRateKg(invoiced.getRateKg());
-		invoicedResponceDto.setRateNos(invoiced.getRateNos());
+		invoicedResponceDto.setRateNos(invoiced.getRateNos()); 
 		invoicedResponceDto.setTestCertificate(invoiced.getTestCertificate());
-		invoicedResponceDto.setTotal(invoiced.getTotal()); 
+		invoicedResponceDto.setTotal(invoiced.getTotal());  
 		return invoicedResponceDto;
 	
 	}

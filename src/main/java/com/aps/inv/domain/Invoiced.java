@@ -21,7 +21,7 @@ public class Invoiced {
 	@GeneratedValue(strategy=GenerationType.AUTO) 
 	private int invoiceNo;
 	
-	private String party,componentName, material;
+	private String party,componentName, material,partNo,process,partyDc,partyDate;
 	
 	private int dispatchNo,inwardNo,componentId;
 	
