@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -19,7 +20,13 @@ import lombok.Data;
 public class Dispatched {
  
 	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO) 
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="DispatchSeq")
+	@SequenceGenerator(
+		name="DispatchSeq",
+		sequenceName="DISPATCH_SEQ",
+		allocationSize=1,
+		initialValue=0
+	) 
 	private int dispatchNo;
 
 	private int inwardNo;

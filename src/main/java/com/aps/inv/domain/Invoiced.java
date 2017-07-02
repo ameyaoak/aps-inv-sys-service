@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -18,7 +19,13 @@ import lombok.Data;
 public class Invoiced {
 	
 	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO) 
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="InvoiceSeq")
+	@SequenceGenerator(
+		name="InvoiceSeq",
+		sequenceName="INVOICE_SEQ",
+		allocationSize=1,
+		initialValue=0
+	)
 	private int invoiceNo;
 	
 	private String party,componentName, material,partNo,process,partyDc,partyDate;
