@@ -32,7 +32,7 @@ public class Invoiced {
 	
 	private int dispatchNo,inwardNo,componentId;
 	
-	private Double qtyKgs,  qtyNos, rateKg,  rateNos,total;
+	private Double qtyKgs,  qtyNos, rateKg,  rateNos,amount,tax,total;
 	private Date creationDate = new Date(); 
 	
 	@OneToOne
