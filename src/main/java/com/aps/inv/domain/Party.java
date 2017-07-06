@@ -26,6 +26,9 @@ public class Party {
 	private String partyPhone; 
 	private String partyEmail;
 	private String partySupplierCode;
+	private String partyGst;
+	private String partyState;
+	private String partyStateCode;
 	
 	
 	@OneToMany(mappedBy="partyId",cascade = CascadeType.ALL)
