@@ -99,7 +99,11 @@ public class ConvertorUtils {
 		invoicedResponceDto.setQtyNos(invoiced.getQtyNos());
 		invoicedResponceDto.setRateKg(invoiced.getRateKg());
 		invoicedResponceDto.setRateNos(invoiced.getRateNos()); 
-		invoicedResponceDto.setTestCertificate(invoiced.getTestCertificate());
+		invoicedResponceDto.setTestCertificate(invoiced.getTestCertificate()); 
+		invoicedResponceDto.setTaxableAmount(invoiced.getAmount());
+		invoicedResponceDto.setCGST(invoiced.getTax()/2);
+		invoicedResponceDto.setSGST(invoiced.getTax()/2); 
+		invoicedResponceDto.setTotalTax(invoiced.getTax()); 
 		invoicedResponceDto.setTotal(invoiced.getTotal());  
 		return invoicedResponceDto;
 	
