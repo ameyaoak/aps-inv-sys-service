@@ -92,7 +92,7 @@ public class ConvertorUtils {
 		invoicedResponceDto.setMaterial(invoiced.getMaterial());
 		invoicedResponceDto.setPartNo(invoiced.getPartNo());
 		invoicedResponceDto.setProcess(invoiced.getProcess());
-		invoicedResponceDto.setParty(invoiced.getParty());
+		invoicedResponceDto.setParty(invoiced.getParty()); 
 		invoicedResponceDto.setPartyDc(invoiced.getPartyDc()); 
 		invoicedResponceDto.setPartyDate(invoiced.getPartyDate()); 
 		invoicedResponceDto.setQtyKgs(invoiced.getQtyKgs());
