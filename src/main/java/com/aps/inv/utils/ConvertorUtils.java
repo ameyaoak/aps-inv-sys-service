@@ -104,7 +104,7 @@ public class ConvertorUtils {
 		invoicedResponceDto.setCGST(invoiced.getTax()/2);
 		invoicedResponceDto.setSGST(invoiced.getTax()/2); 
 		invoicedResponceDto.setTotalTax(invoiced.getTax()); 
-		invoicedResponceDto.setTotal(invoiced.getTotal());  
+		invoicedResponceDto.setTotal((double) Math.round(invoiced.getTotal()));  
 		return invoicedResponceDto;
 	
 	}
