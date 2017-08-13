@@ -37,6 +37,16 @@ public class ConvertorUtils {
 		inwardResponceDto.setQtyNos(inward.getQtyNos());
 		inwardResponceDto.setRateKg(component.getRateKg());
 		inwardResponceDto.setRateNos(component.getRateNos());
+		
+		inwardResponceDto.setWtt(component.getWtt());
+		inwardResponceDto.setCoreHd(component.getCoreHd());
+		inwardResponceDto.setCaseDepth(component.getCaseDepth());
+		inwardResponceDto.setMicro(component.getMicro());
+		inwardResponceDto.setDistortation(component.getDistortation());
+		inwardResponceDto.setSurfaceHd(component.getSurfaceHd());
+		inwardResponceDto.setLayerThickness(component.getLayerThickness());
+		inwardResponceDto.setApperance(component.getApperance());
+		
 		inwardResponceDto.setRemark(inward.getRemark());
 		return inwardResponceDto;
 	}
