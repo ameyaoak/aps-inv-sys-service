@@ -1,5 +1,6 @@
 package com.aps.inv.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,5 +26,9 @@ public class Component {
 			layerThicknessTestLocation, apperanceTestLocation,
 			layerThicknessTestMethod, apperanceTestMethod;
  
-	private double rateKg,rateNos;
+	@Column(precision=7, scale=2)
+	private double rateKg;
+	
+	@Column(precision=7, scale=2)
+	private double rateNos;
 }

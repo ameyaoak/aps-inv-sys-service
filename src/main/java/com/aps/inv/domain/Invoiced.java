@@ -2,6 +2,7 @@ package com.aps.inv.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +33,11 @@ public class Invoiced {
 	
 	private int dispatchNo,inwardNo,componentId;
 	
-	private Double qtyKgs,  qtyNos, rateKg,  rateNos,amount,tax,total;
+	private Double qtyKgs,  qtyNos, rateKg,  rateNos,amount,total;
+	
+	@Column(precision=7, scale=2)
+	private Double tax;
+	
 	private Date creationDate = new Date(); 
 	
 	@OneToOne
