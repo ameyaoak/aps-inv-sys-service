@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,13 +33,8 @@ public class Inward {
 
 	@OneToOne
 	@JoinColumn(name = "componentId")
-	private Component component;
-	@Column(precision=7, scale=2)
-	private double qtyKgs;
-	@Column(precision=7, scale=2)
-	private double qtyNos;
-	@Column(precision=7, scale=2)
-	private double total;
+	private Component component; 
+	private double qtyKgs,qtyNos,total;
 	private Date creationDate = new Date();
 
 	@OneToMany(mappedBy = "inwardNo", cascade = CascadeType.ALL)
