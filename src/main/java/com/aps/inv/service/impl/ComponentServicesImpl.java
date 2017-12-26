@@ -55,12 +55,28 @@ public class ComponentServicesImpl implements ComponentService{
 	public Set<TCGridRow> getComponentsTcGridById(int componentId) {
 		Component component = componentRepository.findByComponentId(componentId);
 		Set<TCGridRow> gridRows = Sets.newLinkedHashSet(); 
+		if(StringUtils.isNotBlank(component.getAsQuenchHd())){
+			TCGridRow gridRow=new TCGridRow();
+			gridRow.setParticular("As Quench Hardness");
+			gridRow.setTestLocation(component.getAsQuenchHdTestLocation());
+			gridRow.setTestMethod(component.getAsQuenchHdTestMethod());
+			gridRow.setActuals(component.getAsQuenchHd());
+			gridRows.add(gridRow);
+		}
 		if(StringUtils.isNotBlank(component.getSurfaceHd())){
 			TCGridRow gridRow=new TCGridRow();
 			gridRow.setParticular("Surface Hardness");
 			gridRow.setTestLocation(component.getSurfaceHdTestLocation());
 			gridRow.setTestMethod(component.getSurfaceHdTestMethod());
 			gridRow.setActuals(component.getSurfaceHd());
+			gridRows.add(gridRow);
+		}
+		if(StringUtils.isNotBlank(component.getHdAfterTempering())){
+			TCGridRow gridRow=new TCGridRow();
+			gridRow.setParticular("Hardness After Tempering");
+			gridRow.setTestLocation(component.getHdAfterTemperingTestLocation());
+			gridRow.setTestMethod(component.getHdAfterTemperingTestMethod());
+			gridRow.setActuals(component.getHdAfterTempering());
 			gridRows.add(gridRow);
 		}
 		if(StringUtils.isNotBlank(component.getCoreHd())){
@@ -85,6 +101,14 @@ public class ComponentServicesImpl implements ComponentService{
 			gridRow.setTestLocation(component.getCrackTestLocation());
 			gridRow.setTestMethod(component.getCrackTestMethod());
 			gridRow.setActuals(component.getCrack());
+			gridRows.add(gridRow);
+		}
+		if(StringUtils.isNotBlank(component.getPartialDecarb())){
+			TCGridRow gridRow=new TCGridRow();
+			gridRow.setParticular("Partial Decarb");
+			gridRow.setTestLocation(component.getPartialDecarbTestLocation());
+			gridRow.setTestMethod(component.getPartialDecarbTestMethod());
+			gridRow.setActuals(component.getPartialDecarb());
 			gridRows.add(gridRow);
 		}
 //		if(StringUtils.isNotBlank(component.getSf())){
@@ -115,7 +139,7 @@ public class ComponentServicesImpl implements ComponentService{
 		}
 		if(StringUtils.isNotBlank(component.getLayerThickness())){
 			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("LayerThickness");
+			gridRow.setParticular("Layer Thickness");
 			gridRow.setTestLocation(component.getLayerThicknessTestLocation());
 			gridRow.setTestMethod(component.getLayerThicknessTestMethod());
 			gridRow.setActuals(component.getLayerThickness());

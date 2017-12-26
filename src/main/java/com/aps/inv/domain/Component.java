@@ -18,9 +18,9 @@ public class Component {
 	private int componentId; 
 	private int partyId;
 	private String componentName , partyName,material,partNo, process, poNo, poDate,
-			coreHd, surfaceHd, caseDepth, crack, micro, distortation, sf, wtt,
-			coreHdTestLocation, surfaceHdTestLocation, caseDepthTestLocation, crackTestLocation, microTestLocation, distortationTestLocation,
-			coreHdTestMethod, surfaceHdTestMethod, caseDepthTestMethod, crackTestMethod, microTestMethod, distortationTestMethod,
+			coreHd, surfaceHd, caseDepth, crack, micro, distortation, sf, wtt,asQuenchHd,hdAfterTempering,partialDecarb,
+			coreHdTestLocation, surfaceHdTestLocation, caseDepthTestLocation, crackTestLocation, microTestLocation, distortationTestLocation,asQuenchHdTestLocation,hdAfterTemperingTestLocation,partialDecarbTestLocation,
+			coreHdTestMethod, surfaceHdTestMethod, caseDepthTestMethod, crackTestMethod, microTestMethod, distortationTestMethod,asQuenchHdTestMethod,hdAfterTemperingTestMethod,partialDecarbTestMethod,
 			layerThickness, apperance, version,processPlanNo,sizeOfJob,routeCardNo,
 			layerThicknessTestLocation, apperanceTestLocation,
 			layerThicknessTestMethod, apperanceTestMethod;
