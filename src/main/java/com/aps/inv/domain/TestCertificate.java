@@ -36,6 +36,10 @@ public class TestCertificate {
 	
 	String annTemp,annTime,normTemp,normTime,totalBatchTime;
 	
+	String preheatingTempMin,preheatingTempMax,preheatingCPMin,preheatingCPMax,carbonActualTempMin,carbonActualTempMax,carbonActualCPMin,carbonActualCPMax,
+	carbonDiffTempMin,carbonDiffTempMax,carbonDiffCPMin,carbonDiffCPMax,hardneningTempMin,hardneningTempMax,
+	hardneningCPMin,hardneningCPMax,temperingT1TempMin,temperingT1TempMax,temperingT2TempMin,temperingT2TempMax;
+	
 	String inspectedBy,approvedBy;
 	 
 }

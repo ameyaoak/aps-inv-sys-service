@@ -6,10 +6,12 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aps.inv.domain.Dispatched;
 import com.aps.inv.domain.Invoiced;
 import com.aps.inv.domain.InvoicedResponceDto;
 import com.aps.inv.domain.TCGridRow;
 import com.aps.inv.domain.TestCertificate;
+import com.aps.inv.repository.DispatchRepository;
 import com.aps.inv.repository.InvoicedRepository;
 import com.aps.inv.repository.TCRepository;
 import com.aps.inv.service.ComponentService;
@@ -30,6 +32,9 @@ public class InvoicedServicesImpl implements InvoicedServices{
 	
 	@Autowired
 	private ConvertorUtils convetorUtil;
+	
+	@Autowired
+	private DispatchRepository dispatchRepository;
 
 	@Override
 	public InvoicedResponceDto getInvoiceByInvoiceId(int id) { 
@@ -64,6 +69,11 @@ public class InvoicedServicesImpl implements InvoicedServices{
 
 	@Override
 	public void removeInvoice(int invoiceId) {
+		Invoiced inv = invoicedRepository.findByInvoiceNo(invoiceId);
+		Dispatched dispatched = dispatchRepository.findByDispatchNo(inv.getDispatchNo());
+		dispatched.setQtyNos(inv.getQtyNos());
+		dispatched.setQtyKgs(inv.getQtyKgs());
+		dispatchRepository.save(dispatched);
 		invoicedRepository.deleteByInvoiceNo(invoiceId);
 	} 
 

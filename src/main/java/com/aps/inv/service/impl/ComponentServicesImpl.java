@@ -131,7 +131,7 @@ public class ComponentServicesImpl implements ComponentService{
 //		}
 		if(StringUtils.isNotBlank(component.getDistortation())){
 			TCGridRow gridRow=new TCGridRow();
-			gridRow.setParticular("Distortation");
+			gridRow.setParticular("Distortion/Profile/Form");
 			gridRow.setTestLocation(component.getDistortationTestLocation());
 			gridRow.setTestMethod(component.getDistortationTestMethod());
 			gridRow.setActuals(component.getDistortation());
