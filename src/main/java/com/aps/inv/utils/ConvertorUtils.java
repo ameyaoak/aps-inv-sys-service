@@ -46,6 +46,9 @@ public class ConvertorUtils {
 		inwardResponceDto.setSurfaceHd(component.getSurfaceHd());
 		inwardResponceDto.setLayerThickness(component.getLayerThickness());
 		inwardResponceDto.setApperance(component.getApperance());
+		inwardResponceDto.setAsQuenchHd(component.getAsQuenchHd());
+		inwardResponceDto.setHdAfterTemp(component.getHdAfterTempering());
+		inwardResponceDto.setPartialDecarb(component.getPartialDecarb()); 
 		
 		inwardResponceDto.setRemark(inward.getRemark());
 		return inwardResponceDto;

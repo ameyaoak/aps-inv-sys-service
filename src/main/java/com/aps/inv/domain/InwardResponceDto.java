@@ -10,6 +10,8 @@ public class InwardResponceDto {
 	String party,component,material,partNo,process,remark,partyDc,partyDate;
 	double qtyKgs,qtyNos,rateKg,rateNos;
 	String coreHd, surfaceHd, caseDepth, micro, distortation, layerThickness, apperance, wtt;
+	
+	String partialDecarb,hdAfterTemp,asQuenchHd;
 	 
 	 	
 }
